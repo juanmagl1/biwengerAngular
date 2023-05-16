@@ -14,9 +14,10 @@
                   </svg>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/auth/login']">Iniciar Sesión</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/auth/register']">Registrarse</a></li>
+              <li><a class="dropdown-item" href="#">Modificar Perfil</a></li>
+              <li><a class="dropdown-item" (click)="logout()" href="#">Cerrar Sesión</a></li>
             </ul>
           </div>
     </div>

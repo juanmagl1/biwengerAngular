@@ -26,6 +26,6 @@ urlPosiciones:string=`${environment.apiUrl}/jugadores/posicion`
   }
 
   filtradoPorNombre(input:string):Observable<Mercado[]>{
-    return this.http.get<Mercado[]>(`${this.urlNombre}input`)
+    return this.http.get<Mercado[]>(`${this.urlNombre}${input}`)
   }
 }

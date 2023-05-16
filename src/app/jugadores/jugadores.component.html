@@ -1,20 +1,22 @@
-<div class="filtrados">
+<button (click)="ocultarBoton()" type="button" class="btn btn-primary">Filtrar</button>
+<div class="filtrados" *ngIf="boton">
  <div class="select">
   <label for="">Posicion</label>
-  <select class="form-control form-control-md" (change)="filtrarPorPosicion()" name="input" [(ngModel)]="input">
-    <option value="" [selected]>Seleccione uno</option>
+  <select class="form-control form-control-md" (change)="filtrarPorNombre()" name="input" [(ngModel)]="input">
     <option *ngFor="let item of posiciones" value="{{item}}">{{item}}</option>
   </select>
  </div>
   
   <div class="input">
-    <label for="">Nombre</label>  
-    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    <label for="">Nombre</label>
+    <form (ngSubmit)="filtrarPorNombre()">
+      <input [(ngModel)]="nombre" name="nombre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </form>  
   </div>
 </div>
 
 
-<!-- <div class="tabla" *ngIf="input==undefined">
+<div class="tabla" *ngIf="input==undefined">
   <p-table class="table" [value]="mercado" [paginator]="true" [rows]="10"
 [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} resultados">
   <ng-template pTemplate="header" class="header">
@@ -35,10 +37,10 @@
     
   </ng-template>
 </p-table>
-</div> -->
+</div>
 
-<div class="tabla">
-  <p-table class="table" [value]="mercado" [paginator]="true" [rows]="10"
+<div class="tabla" *ngIf="input!=undefined">
+  <p-table class="table" [value]="mercado" [paginator]="true" [rows]="10" [totalRecords]="mercado.length"
 [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} resultados">
   <ng-template pTemplate="header" class="header">
     <tr class="enunciado">
@@ -49,14 +51,6 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-item>
-    <tr *ngIf="item.posicion===input; else datos">
-    <td>{{item.id}}</td>
-    <td>{{item.nombre}}</td>
-    <td>{{item.posicion}}</td>
-    <td><a class="btn btn-success" [routerLink]="['/listaPistas',item.id]" >Ver info</a></td>
-    </tr>
-  </ng-template>
-  <ng-template #datos pTemplate="body" let-item>
     <tr>
     <td>{{item.id}}</td>
     <td>{{item.nombre}}</td>

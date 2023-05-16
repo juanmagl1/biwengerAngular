@@ -1,0 +1,98 @@
+<div class="containerLogin">
+    <div class="containerForm">
+        <h2>Registrarse</h2>
+        <form [formGroup]="myForm" (ngSubmit)="register()">
+            <div>
+                <div class="font">
+                    <label for="exampleInputEmail1">Usuario</label>                
+                </div>
+                <div class="input">
+                    <input type="text"
+                    formControlName="username" 
+                    class="form-control" 
+                    id="exampleInputEmail1" 
+                    aria-describedby="emailHelp" 
+                    placeholder="Enter username">
+                </div>
+                <span 
+                class="form-text text-warning"
+                *ngIf="notValid('username')"
+                >
+                    El usuario es requerido
+                </span>
+            </div>
+            <div>
+                <div class="font">
+                    <label for="exampleInputPassword1">Password</label>
+                </div>
+                <div class="input">
+                    <input type="pass" 
+                    class="form-control" 
+                    id="exampleInputPassword1" 
+                    placeholder="Password"
+                    formControlName="pass"
+                    >
+                </div>
+                <span 
+                class="form-text text-warning"
+                *ngIf="notValid('pass')"
+                >
+                    La contraseña es requerida
+                </span>
+            </div>
+            <div>
+                <div class="font">
+                    <label for="exampleInputPassword1">Nombre</label>
+                </div>
+                <div class="input">
+                    <input type="text" class="form-control"
+                    formControlName="nombre" 
+                     placeholder="Nombre">
+                </div>
+                <span 
+                class="form-text text-warning"
+                *ngIf="notValid('nombre')"
+                >
+                    Tiene que tener una longitud minima de 3 caracteres
+                </span>
+            </div>
+            <div>
+                <div class="font">
+                    <label for="exampleInputPassword1">Email</label>
+                </div>
+                <div class="input">
+                    <input type="email" class="form-control" formControlName="email" id="exampleInputPassword1" placeholder="email">
+                </div>
+                <span 
+                class="form-text text-warning"
+                *ngIf="notValid('username')"
+                >
+                    El email es requerido
+                </span>
+            </div>
+            <div>
+                <div class="font">
+                    <label for="exampleInputPassword1">Telefono</label>
+                </div>
+                <div class="input">
+                    <input type="tel" 
+                    class="form-control" 
+                    id="exampleInputPassword1" 
+                    formControlName="telefono"
+                    placeholder="Telefono">
+                </div>
+                <span 
+                class="form-text text-warning"
+                *ngIf="notValid('username')"
+                >
+                    Tiene que tener una longitud minima de 9 caracteres
+                </span>
+            </div>
+            <div class="containerButtons">
+                <button type="submit"  [disabled]="myForm.invalid" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">Volver atrás</button>
+            </div>
+        </form>
+        <p-toast></p-toast>
+    </div>
+</div>

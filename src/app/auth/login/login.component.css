@@ -1,0 +1,23 @@
+.containerLogin{
+    width: 100%;
+    height: 50;
+}
+.containerForm{
+    width: 20%;
+    border: 1px solid #23ABD7;
+    border-radius: 20px;
+    margin-left: 35%;
+    padding: 3%;
+}
+
+form{
+    width: 90%;
+    margin-left: 5%;
+}
+h2{
+    text-align: center;
+}
+
+button{
+    margin-top: 6%;
+}

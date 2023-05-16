@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { JugadoresComponent } from './jugadores.component';
 
 const routes: Routes = [
-  { path: '', 
+  { path: 'mercado', 
   component: JugadoresComponent 
   }
 ];
