@@ -5,6 +5,7 @@ const routes: Routes = [
   {path:'',redirectTo:'auth/login',pathMatch:'full'},
   { path: 'jugadores', loadChildren: () => import('./jugadores/jugadores.module').then(m => m.JugadoresModule) },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+  { path: 'usuarios', loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule) },
   
 
 ];

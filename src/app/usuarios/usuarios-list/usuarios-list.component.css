@@ -1,0 +1,23 @@
+.containerPlayer{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 60%;
+    align-content: center;
+    margin-left: 20%;
+    padding: 2%;
+    margin-top: 1%;
+    font-family: Arial;
+    box-shadow: 5px 5px 15px gray inset;
+}
+
+.containerFlex{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+
+}

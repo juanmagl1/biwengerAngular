@@ -1,0 +1,16 @@
+<div class="containerUsers">
+    <div>
+        <h1>Clasificación</h1>
+        <!-- Nombre, puntos y posicion -->
+        <div class="containerPlayer" *ngFor="let item of users;let indice=index">
+            <div class="containerFlex">
+                <h4>{{indice+1}}</h4>
+                <h4>{{item.nombre}}</h4>
+                <strong>{{item.puntos}}</strong>
+                <!-- <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-secondary">Secondary</button> -->
+            </div>
+            
+        </div>
+    </div>
+</div>
