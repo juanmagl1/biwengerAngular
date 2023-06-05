@@ -5,6 +5,8 @@ import { JugadoresRoutingModule } from './jugadores-routing.module';
 import { JugadoresComponent } from './jugadores.component';
 import {TableModule} from 'primeng/table';
 import { FormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,14 @@ import { FormsModule } from '@angular/forms';
     JugadoresRoutingModule,
     HttpClientModule,
     TableModule,
-    FormsModule
+    FormsModule,
+    ToastModule
   ],
   exports:[
     JugadoresComponent
+  ],
+  providers:[
+    MessageService
   ]
 })
 export class JugadoresModule { }

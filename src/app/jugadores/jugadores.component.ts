@@ -1,7 +1,7 @@
 import { JugadoresService } from './services/jugadores.service';
 import { Component, OnInit } from '@angular/core';
 import { Mercado, Posicion } from './interfaces/jugadores.component';
-
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-jugadores',
   templateUrl: './jugadores.component.html',
@@ -12,11 +12,14 @@ export class JugadoresComponent implements OnInit {
   posiciones!:string[]
   input!:string
   nombre!:string
+  username!:string|null;
   boton:boolean=false
-  constructor(private servicioMercado:JugadoresService){}
+  constructor(private servicioMercado:JugadoresService,
+            private messageService:MessageService){}
   ngOnInit(): void {
   this.cargarPosiciones()
   this.cargarDatosJugadores()
+  this.username=localStorage.getItem('username')
   }
 
   cargarDatosJugadores(){
@@ -78,5 +81,30 @@ export class JugadoresComponent implements OnInit {
         }
       })
     }
+  }
+
+  comprarJugadores(id:number){
+    console.log("ha entrado");
+      this.servicioMercado.comprarJugador(id)
+    .subscribe({
+      next:(jugador)=>{
+        this.mercado = this.mercado.filter(item => item.id != jugador.id);
+        console.log(jugador);
+        
+      },
+      error:(err)=>{
+        console.log("entra en el error");
+        const error:string=err.error.message
+        this.messageService.add({
+          severity:'error',
+          summary:"Error",
+          detail:`${error}`
+        })
+        console.log(err.error.message);
+        //console.log(err);
+        
+        
+      }
+    })
   }
 }

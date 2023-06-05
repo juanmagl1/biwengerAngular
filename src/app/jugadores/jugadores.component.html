@@ -6,7 +6,7 @@
     <option *ngFor="let item of posiciones" value="{{item}}">{{item}}</option>
   </select>
  </div>
-  
+ <p-toast></p-toast>
   <div class="input">
     <label for="">Nombre</label>
     <form (ngSubmit)="filtrarPorNombre()">
@@ -24,7 +24,7 @@
       <th pSortableColumn="id">ID</th>
       <th pSortableColumn="nombre">Nombre</th>
       <th pSortableColumn="posicion">Posicion</th>
-      <th>Reservar</th>
+      <th>Comprar</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-item>
@@ -32,10 +32,11 @@
     <td>{{item.id}}</td>
     <td>{{item.nombre}}</td>
     <td>{{item.posicion}}</td>
-    <td><a class="btn btn-success" [routerLink]="['/listaPistas',item.id]" >Ver info</a></td>
+    <td><a class="btn btn-success" (click)="comprarJugadores(item.id)" >Comprar</a></td>
     </tr>
     
   </ng-template>
+  <p-toast position="top-right"></p-toast>
 </p-table>
 </div>
 
@@ -55,8 +56,9 @@
     <td>{{item.id}}</td>
     <td>{{item.nombre}}</td>
     <td>{{item.posicion}}</td>
-    <td><a class="btn btn-success" [routerLink]="['/listaPistas',item.id]" >Ver info</a></td>
+    <td><a class="btn btn-success" (click)="comprarJugadores(item.id)" >Comprar</a></td>
     </tr>
   </ng-template>
 </p-table>
+<p-toast position="top-left"></p-toast>
 </div>
