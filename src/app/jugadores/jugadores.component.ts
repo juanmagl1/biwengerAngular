@@ -1,11 +1,15 @@
 import { JugadoresService } from './services/jugadores.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Mercado, Posicion } from './interfaces/jugadores.component';
+import { ToastrService } from 'ngx-toastr';
 import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-jugadores',
   templateUrl: './jugadores.component.html',
-  styleUrls: ['./jugadores.component.css']
+  styleUrls: ['./jugadores.component.css'],
+  providers:[
+    MessageService
+  ]
 })
 export class JugadoresComponent implements OnInit {
   mercado!:Mercado[]
@@ -15,7 +19,8 @@ export class JugadoresComponent implements OnInit {
   username!:string|null;
   boton:boolean=false
   constructor(private servicioMercado:JugadoresService,
-            private messageService:MessageService){}
+  private toastr:ToastrService,
+  private messageService:MessageService){}
   ngOnInit(): void {
   this.cargarPosiciones()
   this.cargarDatosJugadores()
@@ -90,20 +95,17 @@ export class JugadoresComponent implements OnInit {
       next:(jugador)=>{
         this.mercado = this.mercado.filter(item => item.id != jugador.id);
         console.log(jugador);
-        
       },
       error:(err)=>{
         console.log("entra en el error");
         const error:string=err.error.message
         this.messageService.add({
+          key:'toastCompra',
           severity:'error',
-          summary:"Error",
           detail:`${error}`
         })
         console.log(err.error.message);
-        //console.log(err);
-        
-        
+        //console.log(err); 
       }
     })
   }

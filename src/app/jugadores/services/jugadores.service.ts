@@ -32,4 +32,8 @@ urlPosiciones:string=`${environment.apiUrl}/jugadores/posicion`
   comprarJugador(id:number):Observable<Mercado>{
     return this.http.post<Mercado>(`${this.urlNombre}${id}/fichar`,{})
   }
+
+  equipo(username:string):Observable<Mercado[]>{
+    return this.http.get<Mercado[]>(`${this.urlNombre}${username}/plantilla`)
+  }
 }

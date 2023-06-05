@@ -1,0 +1,17 @@
+<div class="containerUsers">
+    <div>
+        <h1>Equipo</h1>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col" *ngFor="let item of plantilla">
+              <div class="card">
+                <img src="https://pbs.twimg.com/media/FuzVTTBWIAAhnfJ.jpg" alt="Imagen del jugador">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.nombre}}</h5>
+                  <p class="card-text">{{item.posicion}}</p>
+                  <a href="#" class="btn btn-primary">Vender</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
