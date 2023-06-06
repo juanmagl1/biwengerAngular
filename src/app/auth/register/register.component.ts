@@ -35,6 +35,7 @@ this.auth.register(this.myForm.value)
   this.router.navigate(['/auth/login'])
 }else{
   this.messageService.add({
+    key:'register',
     severity:'error',
     detail:"No te has registrado correctamente"
    })

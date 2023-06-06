@@ -7,8 +7,9 @@ import {TableModule} from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { ToastrModule } from 'ngx-toastr';
 import { EquipoComponent } from './equipo/equipo.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EquipoComponent } from './equipo/equipo.component';
     TableModule,
     FormsModule,
     ToastModule,
-    ToastrModule.forRoot()
+    ConfirmDialogModule,
+    ProgressSpinnerModule
   ],
   exports:[
     JugadoresComponent,

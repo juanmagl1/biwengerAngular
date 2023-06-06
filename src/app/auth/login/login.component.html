@@ -1,46 +1,54 @@
-<div class="containerLogin">
-    <div class="containerForm">
-        <h2>Iniciar Sesión</h2>
-        <form [formGroup]="myForm" (ngSubmit)="login()">
-            <div>
-                <div class="font">
-                    <label for="exampleInputEmail1">Usuario</label>                
-                </div>
-                <div class="input">
-                    <input type="email" 
+ <!--  -->
+<div class="vh-100 d-flex justify-content-center align-items-start">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <div class="card bg-white border-primary">
+            <div class="card-body p-5">
+              <form [formGroup]="myForm" (ngSubmit)="login()" class="mb-3 mt-md-4">
+                <h2 class="fw-bold mb-2 text-uppercase ">Iniciar Sesión</h2>
+                <div class="mb-3">
+                  <label for="email" class="form-label ">Email</label>
+                  <input type="email" 
                     class="form-control" 
                     formControlName="username"
                     id="exampleInputEmail1" 
                     aria-describedby="emailHelp" 
                     placeholder="Enter email">
-                </div>
                 <span 
                 class="form-text text-warning"
                 *ngIf="notValid('username')"
                 >
-                   El username es requerido
+                    El username es requerido
                 </span>
-            </div>
-            <div>
-                <div class="font">
-                    <label for="exampleInputPassword1">Password</label>
                 </div>
-                <div class="input">
-                    <input type="password" 
+                <div class="mb-3">
+                  <label for="password" class="form-label ">Password</label>
+                  <input type="password" 
                     formControlName="password"
                     class="form-control" 
                     id="exampleInputPassword1" 
-                    placeholder="Password">
-                </div>
+                    placeholder="Password"
+                    autocomplete="current-password">
                 <span 
                 class="form-text text-warning"
                 *ngIf="notValid('password')"
                 >
-                   La contraseña es requerida
+                    La contraseña es requerida
                 </span>
+                </div>
+                <!-- <p class="small"><a class="text-primary" href="forget-password.html">Forgot password?</a></p> -->
+                <div class="d-grid">
+                  <button type="submit" [disabled]="myForm.invalid" class="btn btn-outline-primary">Enviar</button>
+                </div>
+              </form>
+              <div>
+                <p class="mb-0  text-center"><strong>¿Aún no estás registrado?,</strong><a [routerLink]="['/auth/register']" class="text-primary fw-bold text-decoration-none"><strong>Haz click aquí</strong></a></p>
+              </div>
+              <p-toast key="toastLogin"></p-toast> 
             </div>
-            <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">Enviar</button>
-        </form>
-        <p-toast key="toastLogin"></p-toast> 
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>

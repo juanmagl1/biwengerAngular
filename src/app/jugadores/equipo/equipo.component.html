@@ -1,6 +1,9 @@
-<div class="containerUsers">
+<h1>Equipo</h1>
+<div class="text-center" *ngIf="plantilla==undefined">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+<div class="containerUsers" *ngIf="plantilla!=undefined">
     <div>
-        <h1>Equipo</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col" *ngFor="let item of plantilla">
               <div class="card">
@@ -8,10 +11,11 @@
                 <div class="card-body">
                   <h5 class="card-title">{{item.nombre}}</h5>
                   <p class="card-text">{{item.posicion}}</p>
-                  <a href="#" class="btn btn-primary">Vender</a>
+                  <button (click)="venderJugador(item.id)" class="btn btn-primary">Vender</button>
                 </div>
               </div>
             </div>
+            <p-toast key="equipo"></p-toast>
           </div>
     </div>
 </div>

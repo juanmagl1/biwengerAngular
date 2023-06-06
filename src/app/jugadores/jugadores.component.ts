@@ -19,7 +19,6 @@ export class JugadoresComponent implements OnInit {
   username!:string|null;
   boton:boolean=false
   constructor(private servicioMercado:JugadoresService,
-  private toastr:ToastrService,
   private messageService:MessageService){}
   ngOnInit(): void {
   this.cargarPosiciones()

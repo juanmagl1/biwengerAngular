@@ -10,7 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/services/auth.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { MessageService } from 'primeng/api';
       useClass:AuthInterceptor,
       multi:true
     },
-    MessageService
+    MessageService,
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })
