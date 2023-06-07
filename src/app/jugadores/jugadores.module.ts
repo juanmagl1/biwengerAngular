@@ -29,6 +29,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
   exports:[
     JugadoresComponent,
     EquipoComponent
+  ],
+  providers:[
+    MessageService
   ]
 })
 export class JugadoresModule { }

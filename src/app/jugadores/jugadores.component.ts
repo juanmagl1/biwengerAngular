@@ -6,10 +6,7 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-jugadores',
   templateUrl: './jugadores.component.html',
-  styleUrls: ['./jugadores.component.css'],
-  providers:[
-    MessageService
-  ]
+  styleUrls: ['./jugadores.component.css']
 })
 export class JugadoresComponent implements OnInit {
   mercado!:Mercado[]

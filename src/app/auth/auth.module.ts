@@ -6,12 +6,14 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UpdateUserComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { MessageService } from 'primeng/api';
   ],
   exports: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UpdateUserComponent
   ],
   providers:[
     MessageService

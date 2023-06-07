@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable, catchError, of, switchMap } from 'rxjs';
 import { RespToken } from '../interfaces/token.interface';
 import { User, UserResp } from '../interfaces/user.interface';
 import { Router } from '@angular/router';
+import { Mercado } from 'src/app/jugadores/interfaces/jugadores.component';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   urlLogin:string=`${environment.apiUrl}/signin`
   urlRegister:string=`${environment.apiUrl}/signup`
+  urlObtenerJugador:string=`${environment.apiUrl}/usuario`
   private loggedIn = new BehaviorSubject<boolean> (localStorage.getItem('loggedIn')==='true'||false);
   constructor(private http:HttpClient,private router:Router) { }
   get isLoggedIn() {
@@ -59,4 +61,19 @@ export class AuthService {
     
     )
   }
+
+  obtenerUsuario(username:string):Observable<UserResp>{
+  return this.http.get<UserResp>(`${this.urlObtenerJugador}/${username}/obtener`);
+  }
+
+  editarUsuarioFoto(username:string,us:Mercado,img:File):Observable<any>{
+    const datos: FormData = new FormData();
+    datos.append('file', img,img.name);
+    datos.append('user', new Blob([JSON.stringify(us)], {type: 'application/json'}))
+    return this.http.put<any>(`${this.urlObtenerJugador}/${username}/update/foto`,datos)
+  }
+
+  editarUsuario(username:string,us:Mercado):Observable<UserResp>{
+    return this.http.put<UserResp>(`${this.urlObtenerJugador}/${username}/update`,us)
+    }
 }

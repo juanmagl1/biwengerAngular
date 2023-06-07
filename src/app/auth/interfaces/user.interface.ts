@@ -15,6 +15,7 @@ export interface UserResp {
     puntos:   number;
     email:    string;
     telefono: string;
+    role: string;
 }
 
 export interface User {
@@ -27,6 +28,16 @@ export interface User {
     telefono: string;
 }
 
+export interface UserImg {
+    username: string;
+    pass:     string;
+    nombre:   string;
+    dinero:   number;
+    puntos:   number;
+    email:    string;
+    telefono: string;
+    img:string;
+}
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {

@@ -6,9 +6,9 @@
         <div class="col-12 col-md-8 col-lg-6">
           <div class="card bg-white border-primary">
             <div class="card-body p-5">
-                <form [formGroup]="myForm" (ngSubmit)="register()">
-                    <h2 class="fw-bold mb-2 text-uppercase ">Registrarse</h2>
-                    <div class="mb-3">
+                <form [formGroup]="myForm" (ngSubmit)="save()">
+                    <h2 class="fw-bold mb-2 text-uppercase ">Editar Perfil</h2>
+                    <div class="mb-3" hidden>
                         <label for="username" class="form-label ">Usuario</label>                        
                         <input type="text"
                         formControlName="username" 
@@ -24,18 +24,14 @@
                         </span>
                     </div>
                     <div class="mb-3">
-                        <label for="pass">Password</label>
-                        <input type="pass" 
-                        class="form-control" 
-                        placeholder="Password"
-                        formControlName="pass"
+                        <label for="exampleInputEmail1" class="form-label text-dark">Role</label>
+                        <input 
+                        type="text" 
+                        class="form-control border border-primary" 
+                        aria-describedby="emailHelp"
+                        name="nombre"
+                        formControlName="role"
                         >
-                        <span 
-                        class="form-text text-warning"
-                        *ngIf="notValid('pass')"
-                        >
-                            La contraseña es requerida
-                        </span>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1">Nombre</label>
@@ -90,13 +86,22 @@
                         Tiene que tener una longitud minima de 9 caracteres
                     </span>
                 </div>
+                <div class="col-sm-9">
+                    <label for="exampleInputPassword1" class="form-label text-light">Foto</label>
+                    <input type="file" 
+                    class="form-control" 
+                    formControlName="fotoPerfil" 
+                    name="fotoPerfil" 
+                    (change)="onFileSelected($event)" 
+                    />
+                      </div>
                 <!-- <p class="small"><a class="text-primary" href="forget-password.html">Forgot password?</a></p> -->
                 <div class="d-grid">
                   <button type="submit" [disabled]="myForm.invalid" class="btn btn-outline-primary">Enviar</button>
                   <button [routerLink]="['/auth/login']" class="btn btn-outline-primary">Volver atrás</button>
                 </div>
               </form>
-              <p-toast key="register"></p-toast>
+              <p-toast key="update"></p-toast>
                 </div>
           </div>
         </div>

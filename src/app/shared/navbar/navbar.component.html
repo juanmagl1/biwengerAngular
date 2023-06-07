@@ -16,7 +16,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li *ngIf="!(isLoggedIn$|async)"><a class="dropdown-item" [routerLink]="['/auth/login']">Iniciar Sesión</a></li>
               <li *ngIf="!(isLoggedIn$|async)"><a class="dropdown-item" [routerLink]="['/auth/register']">Registrarse</a></li>
-              <li *ngIf="(isLoggedIn$|async)"><a class="dropdown-item" href="#">Modificar Perfil</a></li>
+              <li *ngIf="(isLoggedIn$|async)"><a class="dropdown-item" [routerLink]="['/auth/update']">Modificar Perfil</a></li>
               <li *ngIf="(isLoggedIn$|async)"><a class="dropdown-item" (click)="logout()" href="#">Cerrar Sesión</a></li>
             </ul>
           </div>
