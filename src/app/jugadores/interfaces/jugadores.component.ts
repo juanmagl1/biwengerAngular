@@ -17,6 +17,11 @@ export interface Mercado {
     username: null;
 }
 
+export interface Alinea{
+    numJornada:number,
+    alineacion:Mercado[]
+}
+
 export enum Posicion {
     Centrocampista = "Centrocampista",
     Defensa = "Defensa",

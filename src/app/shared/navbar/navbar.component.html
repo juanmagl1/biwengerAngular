@@ -1,7 +1,7 @@
 <div class="containerNavbar">
    <div class="containerFlex">
     <div class="containerImage">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqt9-_hq6nRn_yp2UP8Sp_bQyr_tAI8rcAQA&usqp=CAU" alt="">
+        <img [routerLink]="['/jugadores/mercado']" src="https://cdn.pixabay.com/photo/2019/06/30/21/08/balloon-4308798_640.png" alt="">
     </div>
     <div class="nombre">
     <h1>Nombre de la Aplicación</h1>
@@ -16,7 +16,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li *ngIf="!(isLoggedIn$|async)"><a class="dropdown-item" [routerLink]="['/auth/login']">Iniciar Sesión</a></li>
               <li *ngIf="!(isLoggedIn$|async)"><a class="dropdown-item" [routerLink]="['/auth/register']">Registrarse</a></li>
-              <li *ngIf="(isLoggedIn$|async)"><a class="dropdown-item" [routerLink]="['/auth/update']">Modificar Perfil</a></li>
+              <li *ngIf="(isLoggedIn$|async)"><a class="dropdown-item" [routerLink]="['/auth/update']">Hola, {{username}}</a></li>
               <li *ngIf="(isLoggedIn$|async)"><a class="dropdown-item" (click)="logout()" href="#">Cerrar Sesión</a></li>
             </ul>
           </div>

@@ -12,10 +12,12 @@
                   <h5 class="card-title">{{item.nombre}}</h5>
                   <p class="card-text">{{item.posicion}}</p>
                   <button (click)="venderJugador(item.id)" class="btn btn-primary">Vender</button>
+                  <button (click)="hacerAlineacion(item)" class="btn btn-success">Añadir a plantilla</button>
                 </div>
               </div>
             </div>
-            <p-toast key="equipo"></p-toast>
+            <button (click)="guardarAlineacion()" class="btn btn-danger col-md-12">Guardar</button>
+            <p-toast key="plantilla"></p-toast>
           </div>
     </div>
 </div>

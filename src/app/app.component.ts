@@ -8,10 +8,9 @@ import { AuthService } from './auth/services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  isLoggedIn$!: Observable<boolean>;
+  isLoggedIn$: Observable<boolean>=this.auth.isLoggedIn;
   constructor(private auth:AuthService){}
   ngOnInit(): void {
-    this.isLoggedIn$ = this.auth.isLoggedIn;
   }
   title = 'JuegoAngular';
 }

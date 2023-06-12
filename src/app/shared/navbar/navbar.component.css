@@ -14,12 +14,14 @@
   justify-content: space-evenly;
   align-items: flex-start;
   background-color: #CCDAFF;
+  min-height: 150px;
 }
 
 .containerImage{
-  height: 125px;
-  width: 120px;
-}
+    height: auto;
+    width: 100%;
+    max-width: 120px;
+  }
 h1{
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   margin-left: 4%;

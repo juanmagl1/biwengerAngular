@@ -1,13 +1,11 @@
-<!--  -->
- <!--  -->
- <div class="vh-100 d-flex justify-content-center align-items-start">
+ <div class="vh-90 d-flex justify-content-center align-items-start">
     <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
           <div class="card bg-white border-primary">
             <div class="card-body p-5">
                 <form [formGroup]="myForm" (ngSubmit)="save()">
-                    <h2 class="fw-bold mb-2 text-uppercase ">Editar Perfil</h2>
+                    <h2 class="fw-bold mb-2 text-uppercase text-center">Editar Perfil</h2>
                     <div class="mb-3" hidden>
                         <label for="username" class="form-label ">Usuario</label>                        
                         <input type="text"
@@ -97,7 +95,7 @@
                       </div>
                 <!-- <p class="small"><a class="text-primary" href="forget-password.html">Forgot password?</a></p> -->
                 <div class="d-grid">
-                  <button type="submit" [disabled]="myForm.invalid" class="btn btn-outline-primary">Enviar</button>
+                  <button type="submit" class="btn btn-outline-primary">Enviar</button>
                   <button [routerLink]="['/auth/login']" class="btn btn-outline-primary">Volver atrás</button>
                 </div>
               </form>

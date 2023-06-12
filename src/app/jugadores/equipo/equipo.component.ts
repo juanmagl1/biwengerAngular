@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Mercado } from '../interfaces/jugadores.component';
+import { Alinea, Mercado } from '../interfaces/jugadores.component';
 import { JugadoresService } from '../services/jugadores.service';
 import { MessageService } from 'primeng/api';
 import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-equipo',
@@ -12,6 +13,9 @@ import Swal from 'sweetalert2';
 export class EquipoComponent implements OnInit{
   username:string|null="";
   plantilla!:Mercado[];
+  alineacion:Mercado[]=[];
+  numJornada!:number
+  objeto!:Alinea;
   constructor(private jugadorService:JugadoresService,
   private messageService: MessageService ){}
   ngOnInit(): void {
@@ -40,15 +44,45 @@ export class EquipoComponent implements OnInit{
         .subscribe({
           next:(jugador)=>{
             this.messageService.add({
-              key:'equipo',
+              key:'plantilla',
               severity:'success',
               detail:"Jugador vendido"
             })
             this.plantilla=this.plantilla.filter(item=>item.id!=jugador.id);
+            this.alineacion=this.alineacion.filter(item=>item.id!=jugador.id);
           }
         })
       }
 
     })
+}
+
+hacerAlineacion(jugador:Mercado){
+  if (!this.alineacion.includes(jugador)){
+    this.alineacion.push(jugador)
+  }
+  console.log(this.alineacion);
+  
+}
+
+guardarAlineacion(){
+ this.objeto={
+  numJornada:3,
+  alineacion:this.plantilla
+ }
+  console.log(this.objeto);
+  
+  this.jugadorService.hacerAlineacion(this.objeto)
+  .subscribe({
+    next:(resp)=>{
+      this.messageService.add({
+        key:'plantilla',
+        severity:'success',
+        detail:'Alineación guardada'
+      })
+    },error:(error)=>{
+      console.log(error);
+    }
+  })
 }
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Mercado } from '../interfaces/jugadores.component';
+import { Alinea, Mercado } from '../interfaces/jugadores.component';
 import { environment } from 'src/environments/environments';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class JugadoresService {
 url:string=`${environment.apiUrl}/jugadores/mercado`
 urlNombre:string=`${environment.apiUrl}/jugadores/`
 urlPosiciones:string=`${environment.apiUrl}/jugadores/posicion`
+urlAlineacion:string=`${environment.apiUrl}/alinea/`
   constructor(private http:HttpClient) { }
 
   mercado():Observable<Mercado[]>{
@@ -39,4 +40,7 @@ urlPosiciones:string=`${environment.apiUrl}/jugadores/posicion`
   venderJugador(id:number):Observable<Mercado>{
     return this.http.post<Mercado>(`${this.urlNombre}${id}/vender`,{})
   }
+hacerAlineacion(jugadores:Alinea):Observable<Mercado[]>{
+  return this.http.post<Mercado[]>(this.urlAlineacion,jugadores)
+}
 }
