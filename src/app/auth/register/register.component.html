@@ -3,7 +3,7 @@
       <div class="row d-flex justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
           <div class="card bg-white border-primary">
-            <div class="card-body p-5">
+            <div class="card-body p-3">
                 <form [formGroup]="myForm" (ngSubmit)="register()">
                     <h2 class="fw-bold mb-2 text-uppercase ">Registrarse</h2>
                     <div class="mb-3">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="pass">Password</label>
-                        <input type="pass" 
+                        <input type="password" 
                         class="form-control" 
                         placeholder="Password"
                         formControlName="pass"
@@ -62,20 +62,6 @@
                 </span>
                 </div>
                 <div class="mb-3">
-                  <label for="password" class="form-label ">Password</label>
-                  <input type="password" 
-                    formControlName="pass"
-                    class="form-control" 
-                    placeholder="Password"
-                    autocomplete="current-password">
-                <span 
-                class="form-text text-warning"
-                *ngIf="notValid('pass')"
-                >
-                    La contraseña es requerida
-                </span>
-                </div>
-                <div class="mb-3">
                     <label for="exampleInputPassword1">Telefono</label>
                     <input type="tel" 
                     class="form-control" 
@@ -91,7 +77,7 @@
                 <!-- <p class="small"><a class="text-primary" href="forget-password.html">Forgot password?</a></p> -->
                 <div class="d-grid">
                   <button type="submit" [disabled]="myForm.invalid" class="btn btn-outline-primary">Enviar</button>
-                  <button [routerLink]="['/auth/login']" class="btn btn-outline-primary">Volver atrás</button>
+                  <button [routerLink]="['/auth/login']" class="btn btn-outline-primary">Volver al login</button>
                 </div>
               </form>
               <p-toast key="register"></p-toast>

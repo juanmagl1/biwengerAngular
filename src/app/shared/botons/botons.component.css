@@ -3,11 +3,17 @@ nav{
     height: 90%;
     width: 100%;
 }
-
+.activo{
+    color: white;
+    font-weight: bold;
+}
 ul{
     list-style: none;
     display: flex;
-    gap: 1%;
+    gap: 15%;
+    justify-content: space-between;
+    margin-right: 2%;
+
 }
 
 a{

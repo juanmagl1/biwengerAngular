@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   isLoggedIn$: Observable<boolean>=this.auth.isLoggedIn;
   constructor(private auth:AuthService){}
   ngOnInit(): void {
+    this.isLoggedIn$ = this.auth.isLoggedIn;
   }
   title = 'JuegoAngular';
 }

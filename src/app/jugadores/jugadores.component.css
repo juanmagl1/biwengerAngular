@@ -1,19 +1,26 @@
-.select{
-    margin-left: 1%;
-    margin-bottom: 2%;
-    width: 5%;
+h1{
+    text-align: center;
 }
-
-.input{
-    margin-left: 1%;
-    margin-bottom: 2%;
-    width: 10%;
+.ache4{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 5%;
+    
 }
-
+.numero{
+    color: red;
+    margin-right: 2%;
+}
+.letra{
+    font-weight: bold;
+    margin-right: 4px;
+}
 .filtrados{
     display: flex;
     gap: 1%;
     flex-wrap: wrap;
+    margin-bottom: 3%;
 }
 
 button{

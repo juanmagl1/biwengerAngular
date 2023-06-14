@@ -37,7 +37,7 @@ this.auth.register(this.myForm.value)
   this.messageService.add({
     key:'register',
     severity:'error',
-    detail:"No te has registrado correctamente"
+    detail:"Ya existe uno con ese nombre en la bd"
    })
 }
 })

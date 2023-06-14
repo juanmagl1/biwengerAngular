@@ -7,25 +7,27 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
+    TableModule
     
   ],
   exports: [
     LoginComponent,
     RegisterComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
   ],
   providers:[
     MessageService

@@ -11,12 +11,14 @@
                 <div class="card-body">
                   <h5 class="card-title">{{item.nombre}}</h5>
                   <p class="card-text">{{item.posicion}}</p>
-                  <button (click)="venderJugador(item.id)" class="btn btn-primary">Vender</button>
-                  <button (click)="hacerAlineacion(item)" class="btn btn-success">Añadir a plantilla</button>
+                  <button (click)="venderJugador(item.id)" class="btn btn-primary">Vender {{item.precio}}€</button>
+                  <button *ngIf="!item.alinea" (click)="hacerAlineacion(item)" class="btn btn-success">Añadir a plantilla</button>
+                  <button *ngIf="item.alinea" (click)="quitarJugadorAlineacion(item)" class="btn btn-danger">Quitar de plantilla</button>
                 </div>
               </div>
             </div>
-            <button (click)="guardarAlineacion()" class="btn btn-danger col-md-12">Guardar</button>
+              <button [disabled]="alineacion.length==0" (click)="guardarAlineacion()" class="btn btn-danger col-md-12">Guardar</button>
+              <button [disabled]="alineacion.length==0" (click)="vaciarPlantilla()" class="btn btn-primary col-md-12">Vaciar plantilla</button>
             <p-toast key="plantilla"></p-toast>
           </div>
     </div>

@@ -1,23 +1,24 @@
+<h1>Mercado</h1>
 <div class="text-center" *ngIf="mercado==undefined">
   <p-progressSpinner></p-progressSpinner>
 </div>
 <div *ngIf="mercado!=undefined">
   <button (click)="ocultarBoton()" type="button" class="btn btn-primary">Filtrar</button>
   <div class="filtrados" *ngIf="boton">
-   <div class="select">
-    <label for="">Posicion</label>
-    <select class="form-control form-control-md" (change)="filtrarPorNombre()" name="input" [(ngModel)]="input">
-      <option *ngFor="let item of posiciones" value="{{item}}">{{item}}</option>
-    </select>
-   </div>
+    <p>Filtrar por:</p>
     <div class="input">
       <label for="">Nombre</label>
       <form (ngSubmit)="filtrarPorNombre()">
-        <input [(ngModel)]="nombre" name="nombre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <input class="" [(ngModel)]="nombre" name="nombre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
       </form>  
     </div>
+    <div class="select">
+      <label for="">Posicion</label>
+      <select class="form-control form-control-md" (change)="filtrarPorNombre()" name="input" [(ngModel)]="input">
+        <option *ngFor="let item of posiciones" value="{{item}}">{{item}}</option>
+      </select>
+     </div>
   </div>
-  
   
   <div class="tabla" *ngIf="input==undefined">
     <p-table class="table" [value]="mercado" [paginator]="true" [rows]="10"
@@ -62,6 +63,10 @@
       </tr>
     </ng-template>
   </p-table>
+  </div>
+  <div class="ache4" *ngIf="dinero!=undefined">
+    <h4 class="letra">Dinero restante de {{username}}: </h4>
+    <h4 class="numero">{{dinero}}€</h4>
   </div>
 </div>
 <p-toast key="toastCompra"></p-toast>

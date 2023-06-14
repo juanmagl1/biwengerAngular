@@ -36,6 +36,7 @@ export class UpdateUserComponent implements OnInit {
     fotoPerfil:['',],
     fileSource:['']
   })
+  
 
   notValid(campo:string){
     return this.myForm.controls[campo].errors&&

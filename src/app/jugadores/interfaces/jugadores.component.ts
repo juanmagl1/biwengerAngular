@@ -12,9 +12,16 @@ export interface Mercado {
     nombre:   string;
     precio:   number;
     posicion: Posicion;
+    pais: string;
     puntos:   number;
     idEquipo: number;
-    username: null;
+    username: string;
+    alinea:   boolean;
+}
+
+export interface Equipo {
+    id:     number;
+    nombre: string;
 }
 
 export interface Alinea{

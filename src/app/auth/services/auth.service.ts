@@ -7,6 +7,7 @@ import { RespToken } from '../interfaces/token.interface';
 import { User, UserResp } from '../interfaces/user.interface';
 import { Router } from '@angular/router';
 import { Mercado } from 'src/app/jugadores/interfaces/jugadores.component';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,14 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
+  get role(){
+    const token:string|null=localStorage.getItem('token');
+    let decodedToken:any;
+    if (token!=null){
+      decodedToken=jwtDecode(token)
+    }
+    return decodedToken.role;
+  }
   login(user:Login):Observable<Boolean>{
     return this.http.post<RespToken>(this.urlLogin,user)
     .pipe(switchMap(token=>{
@@ -66,14 +75,16 @@ export class AuthService {
   return this.http.get<UserResp>(`${this.urlObtenerJugador}/${username}/obtener`);
   }
 
-  editarUsuarioFoto(username:string,us:Mercado,img:File):Observable<any>{
+  editarUsuarioFoto(username:string,us:UserResp,img:File):Observable<any>{
     const datos: FormData = new FormData();
     datos.append('file', img,img.name);
     datos.append('user', new Blob([JSON.stringify(us)], {type: 'application/json'}))
     return this.http.put<any>(`${this.urlObtenerJugador}/${username}/update/foto`,datos)
   }
 
-  editarUsuario(username:string,us:Mercado):Observable<UserResp>{
+  editarUsuario(username:string,us:UserResp):Observable<UserResp>{
     return this.http.put<UserResp>(`${this.urlObtenerJugador}/${username}/update`,us)
     }
+
+  
 }

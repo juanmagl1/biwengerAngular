@@ -7,7 +7,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent,pathMatch:'full'},
   { path: 'register', component: RegisterComponent },
-  { path: 'update', component: UpdateUserComponent }
+  { path: 'update', component: UpdateUserComponent },
+
 ];
 
 @NgModule({

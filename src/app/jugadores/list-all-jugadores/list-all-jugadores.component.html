@@ -1,0 +1,22 @@
+<h1>Gestionar Jugadores</h1>
+<div class="tabla">
+    <p-table class="table" [value]="jugador" [paginator]="true" [rows]="10"
+  [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} resultados">
+    <ng-template pTemplate="header" class="header">
+      <tr class="enunciado">
+        <th pSortableColumn="id">ID</th>
+        <th pSortableColumn="nombre">Nombre</th>
+        <th pSortableColumn="posicion">Posicion</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+      <tr>
+      <td>{{item.id}}</td>
+      <td>{{item.nombre}}</td>
+      <td>{{item.posicion}}</td>
+      <td><a [routerLink]="['/editar-jugador',item.id]" class="btn btn-warning">Editar</a></td>
+      <td><a (click)="borrarJugador(item.id)" class="btn btn-danger">Borrar</a></td>
+      </tr>
+    </ng-template>
+  </p-table>

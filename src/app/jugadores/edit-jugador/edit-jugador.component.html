@@ -1,0 +1,84 @@
+<div class="text-center" *ngIf="jugador==undefined">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+<div *ngIf="jugador!=undefined" class="vh-90 d-flex justify-content-center align-items-start">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <div class="card bg-white border-primary">
+            <div class="card-body p-3">
+                <form [formGroup]="myForm" (ngSubmit)="editar()">
+                    <h2 class="fw-bold mb-2 text-uppercase ">Editar Jugador</h2>
+                    <div class="mb-3" hidden>
+                        <label for="username" class="form-label ">id</label>                        
+                        <input type="number"
+                        formControlName="id" 
+                        class="form-control" 
+                        id="username" 
+                        aria-describedby="emailHelp" 
+                        placeholder="Enter id">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pass">nombre</label>
+                        <input type="text" 
+                        class="form-control" 
+                        placeholder="nombre"
+                        formControlName="nombre"
+                        >
+                       
+                    </div>
+                    <div class="mb-3" hidden>
+                        <label for="pass">puntos</label>
+                        <input type="text" 
+                        class="form-control" 
+                        placeholder="nombre"
+                        formControlName="puntos"
+                        >
+                       
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1">Precio</label>
+                        <input type="number" class="form-control"
+                        formControlName="precio" 
+                         placeholder="precio">
+                        
+                    </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label ">Posicion</label>
+                  <input type="text" 
+                    class="form-control" 
+                    formControlName="posicion"
+                    aria-describedby="emailHelp" 
+                    >
+               
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1">Pais</label>
+                    <input type="text" 
+                    class="form-control" 
+                    formControlName="pais"
+                    placeholder="pais">
+                   
+                </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Equipo</label>
+                        <select 
+                        class="form-control" 
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="jugador.idEquipo"
+                        formControlName="idEquipo"
+                        >
+                        <option *ngFor="let item of equipos" value="{{item.id}}">{{item.nombre}}</option>
+                        </select>
+                      </div>           
+                        <div class="d-grid">
+                  <button type="submit" class="btn btn-outline-primary">Enviar</button>
+                  <button [routerLink]="['/jugadores/lista']" class="btn btn-outline-primary">Volver a la gestion de jugadores</button>
+                </div>
+              </form>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

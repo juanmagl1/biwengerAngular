@@ -1,14 +1,17 @@
 <nav>
     <div>
       <ul>
-        <li>
+        <li routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">
           <a [routerLink]="['jugadores/mercado']">Mercado</a>
         </li>
-        <li>
+        <li routerLinkActive="activo">
           <a [routerLink]="['usuarios/lista']">Clasificacion</a>
         </li>
-        <li>
+        <li routerLinkActive="activo">
           <a [routerLink]="['jugadores/equipo']">Equipo</a>
+        </li>
+        <li routerLinkActive="activo">
+          <a [routerLink]="['jugadores/alineacion']">Alineacion</a>
         </li>
       </ul>
     </div>
