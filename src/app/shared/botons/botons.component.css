@@ -1,23 +1,25 @@
-nav{
+nav {
     background-color: rgba(35, 171, 215, 1);
-    height: 90%;
+    height: 90px; /* Cambié el porcentaje a píxeles para mayor precisión */
     width: 100%;
-}
-.activo{
+  }
+  
+  .activo {
     color: white;
     font-weight: bold;
-}
-ul{
+  }
+  
+  ul {
     list-style: none;
     display: flex;
-    gap: 15%;
+    flex-wrap: wrap; /* Añadí esta propiedad para que los elementos se envuelvan en pantallas más pequeñas */
+    gap: 15px; /* Cambié el porcentaje a píxeles para mayor precisión */
     justify-content: space-between;
     margin-right: 2%;
-
-}
-
-a{
+  }
+  
+  a {
     color: #fff;
     text-decoration: none;
     margin-top: 4%;
-}
+  }
