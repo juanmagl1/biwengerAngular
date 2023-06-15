@@ -8,12 +8,12 @@
               <form [formGroup]="myForm" (ngSubmit)="login()" class="mb-3 mt-md-4">
                 <h2 class="fw-bold mb-2 text-uppercase ">Iniciar Sesión</h2>
                 <div class="mb-3">
-                  <label for="email" class="form-label ">Email</label>
-                  <input type="email" 
+                  <label for="email" class="form-label ">Username</label>
+                  <input type="text" 
                     class="form-control" 
                     formControlName="username"
                     aria-describedby="emailHelp" 
-                    placeholder="Enter email">
+                    placeholder="Enter username">
                 <span 
                 class="form-text text-warning"
                 *ngIf="notValid('username')"

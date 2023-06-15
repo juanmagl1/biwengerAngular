@@ -16,8 +16,8 @@
         <tr>
         <td>{{item.nombre}}</td>
         <td>{{item.role}}</td>
-        <td><a (click)="borrarUsuario(item.username)" class="btn btn-danger">Borrar</a></td>
-        <td><a [routerLink]="['/usuarios/edit-role',item.username]" class="btn btn-warning">Editar</a></td>
+        <td><a (click)="borrarUsuario(item.username)" class="btn btn-danger">Borrar</a>
+          <a [routerLink]="['/usuarios/edit-role',item.username]" class="btn btn-warning">Editar</a></td>
         </tr>
       </ng-template>
     </p-table>

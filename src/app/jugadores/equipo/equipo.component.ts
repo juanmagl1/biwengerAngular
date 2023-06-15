@@ -17,6 +17,7 @@ export class EquipoComponent implements OnInit{
   numJornada!:number
   objeto!:Alinea;
   correcto!:boolean;
+  alineacionSemanal:Mercado[]=[]
   constructor(private jugadorService:JugadoresService,
   private messageService: MessageService ){}
   ngOnInit(): void {
@@ -30,6 +31,13 @@ export class EquipoComponent implements OnInit{
       },error(err) {
         console.log(err);
       },
+    })
+
+    this.jugadorService.devolverAlineacion(this.username||"")
+    .subscribe({
+      next:(val)=>{
+        this.alineacionSemanal=val
+      }
     })
   }
 
@@ -121,10 +129,17 @@ guardarAlineacion(){
   detail:'La alineación no es correcta, revisala'
 })
   }else{
-    this.objeto={
-      numJornada:3,
-      alineacion:this.alineacion
-     }  
+    if(this.alineacionSemanal.length>0){
+      this.messageService.add({
+        key:'plantilla',
+        severity:'error',
+        detail:'Ya tienes una alineacion espera a que pase esta jornada'
+      })
+    }else{
+      this.objeto={
+        numJornada:3,
+        alineacion:this.alineacion
+       }  
       this.jugadorService.hacerAlineacion(this.objeto)
       .subscribe({
         next:(resp)=>{
@@ -137,6 +152,8 @@ guardarAlineacion(){
           console.log(error);
         }
       })
+    }
+     
   }
  
 }

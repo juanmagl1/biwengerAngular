@@ -2,24 +2,33 @@
 <div class="text-center" *ngIf="plantilla==undefined">
   <p-progressSpinner></p-progressSpinner>
 </div>
+<h4>Alineación predeterminada: 4-3-3</h4>
 <div class="containerUsers" *ngIf="plantilla!=undefined">
-    <div>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col" *ngFor="let item of plantilla">
-              <div class="card">
-                <img [src]="item.imagen" alt="Imagen del jugador">
-                <div class="card-body">
-                  <h5 class="card-title">{{item.nombre}}</h5>
-                  <p class="card-text">{{item.posicion}}</p>
-                  <button (click)="venderJugador(item.id)" class="btn btn-primary">Vender {{item.precio}}€</button>
-                  <button *ngIf="!item.alinea" (click)="hacerAlineacion(item)" class="btn btn-success">Añadir a plantilla</button>
-                  <button *ngIf="item.alinea" (click)="quitarJugadorAlineacion(item)" class="btn btn-danger">Quitar de plantilla</button>
-                </div>
-              </div>
+  <div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col" *ngFor="let item of plantilla">
+        <div class="card">
+          <img [src]="item.imagen" alt="Imagen del jugador">
+          <div class="card-body">
+            <h5 class="card-title">{{item.nombre}}</h5>
+            <p class="card-text">{{item.posicion}}</p>
+            <h5 class="card-title">{{item.puntos}}</h5>
+            <div class="buton">
+              <button (click)="venderJugador(item.id)" class="btn btn-primary">Vender {{item.precio}}€</button>
+              <button *ngIf="!item.alinea" (click)="hacerAlineacion(item)" class="btn btn-success">Añadir a
+                alineacion</button>
+              <button *ngIf="item.alinea" (click)="quitarJugadorAlineacion(item)" class="btn btn-danger">Quitar de
+                alineacion</button>
             </div>
-              <button [disabled]="alineacion.length==0" (click)="guardarAlineacion()" class="btn btn-danger col-md-12">Guardar</button>
-              <button [disabled]="alineacion.length==0" (click)="vaciarPlantilla()" class="btn btn-primary col-md-12">Vaciar plantilla</button>
-            <p-toast key="plantilla"></p-toast>
           </div>
+        </div>
+      </div>
+
+      <button [disabled]="alineacion.length==0" (click)="guardarAlineacion()"
+        class="btn btn-danger col-md-12">Guardar</button>
+      <button [disabled]="alineacion.length==0" (click)="vaciarPlantilla()" class="btn btn-primary col-md-12">Vaciar
+        alineacion</button>
+      <p-toast key="plantilla"></p-toast>
     </div>
+  </div>
 </div>
