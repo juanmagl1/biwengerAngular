@@ -1,6 +1,6 @@
 nav {
     background-color: rgba(35, 171, 215, 1);
-    height: 90px; /* Cambié el porcentaje a píxeles para mayor precisión */
+    height: 50px; 
     width: 100%;
   }
   
@@ -12,8 +12,8 @@ nav {
   ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap; /* Añadí esta propiedad para que los elementos se envuelvan en pantallas más pequeñas */
-    gap: 15px; /* Cambié el porcentaje a píxeles para mayor precisión */
+    flex-wrap: wrap; 
+    gap: 15px; 
     justify-content: space-between;
     margin-right: 2%;
   }
