@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from 'src/app/auth/interfaces/user.interface';
 import { UsuariosService } from '../services/usuarios.service';
 import { MessageService } from 'primeng/api';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-users',
@@ -17,7 +18,16 @@ export class ListUsersComponent {
     }
 
     borrarUsuario(id:string){
-      this.user.borrarUsuario(id)
+      Swal.fire({
+        title: '¿Quieres borrar a este usuario?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si'
+      }).then((result) => {
+        if (result.isConfirmed) {
+       this.user.borrarUsuario(id)
       .subscribe({
         next:(resp)=>{
           console.log(resp);
@@ -34,6 +44,10 @@ export class ListUsersComponent {
           
         }
       })
+        }
+  
+      })
+    
     }
 
     obtenerUsuarios(){

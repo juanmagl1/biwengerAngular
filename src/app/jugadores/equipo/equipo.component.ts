@@ -25,6 +25,8 @@ export class EquipoComponent implements OnInit{
     .subscribe({
       next:(resp)=>{
         this.plantilla=resp;
+        console.log(resp);
+        
       },error(err) {
         console.log(err);
       },

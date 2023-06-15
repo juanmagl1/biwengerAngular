@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JugadoresService } from '../services/jugadores.service';
 import { Mercado } from '../interfaces/jugadores.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-all-jugadores',
@@ -19,11 +20,24 @@ export class ListAllJugadoresComponent implements OnInit {
     })
   }
 borrarJugador(id:number){
-  this.jugadores.borrarJugador(id)
-  .subscribe({
-    next:(resp)=>{
-      this.jugador=this.jugador.filter(item=>item.id!=resp.id)
+  Swal.fire({
+    title: '¿Quieres borrar a este Jugador?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.jugadores.borrarJugador(id)
+      .subscribe({
+        next:(resp)=>{
+        this.jugador=this.jugador.filter(item=>item.id!=resp.id)
     }
   })
+    }
+
+  })
+  
 }
 }

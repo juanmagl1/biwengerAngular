@@ -17,6 +17,7 @@ export interface Mercado {
     idEquipo: number;
     username: string;
     alinea:   boolean;
+    imagen:   string;
 }
 
 export interface Equipo {
