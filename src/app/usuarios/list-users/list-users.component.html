@@ -19,7 +19,7 @@
       <td>{{item.email}}</td>
       <td>{{item.telefono}}</td>
       <td>{{item.role}}</td>
-      <td><a (click)="borrarUsuario(item.username)" class="btn btn-danger">Borrar</a></td>
+      <td><a (click)="borrarUsuario(item.username)" class="btn btn-danger">Borrar</a></td><br>
       <td><a [routerLink]="['/usuarios/edit-role',item.username]" class="btn btn-warning">Editar</a></td>
       </tr>
     </ng-template>
