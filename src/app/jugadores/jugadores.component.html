@@ -34,7 +34,8 @@
       <tr>
       <td>{{item.nombre}}</td>
       <td>{{item.posicion}}</td>
-      <td><a class="btn btn-success" (click)="comprarJugadores(item.id)" >{{item.precio}}€</a></td>
+      <td><strong>{{item.puntos}}</strong><br>
+        <a class="btn btn-success" (click)="comprarJugadores(item.id)" >{{item.precio}}€</a></td>
       </tr>
       
     </ng-template>
