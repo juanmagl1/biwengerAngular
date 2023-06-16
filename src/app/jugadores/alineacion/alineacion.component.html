@@ -1,19 +1,24 @@
-<h1>Alineacion de esta jornada</h1>
-<div class="text-center" *ngIf="plantilla==undefined">
-  <p-progressSpinner></p-progressSpinner>
+<div class="containerScroll">
+  <h1>Alineacion de esta jornada</h1>
+  <div class="text-center" *ngIf="plantilla==undefined">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+  <div class="text-center" *ngIf="plantilla.length==0">
+    <h1>No tienes ninguna alineacion guardada</h1>
+  </div>
 </div>
 <div class="containerUsers" *ngIf="plantilla!=undefined">
-    <div>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col" *ngFor="let item of plantilla">
-              <div class="card">
-                <img [src]="item.imagen" alt="Imagen del jugador">
-                <div class="card-body">
-                  <h5 class="card-title">{{item.nombre}}</h5>
-                  <p class="card-text">{{item.posicion}}</p>
-                </div>
-              </div>
-            </div>
+  <div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col" *ngFor="let item of plantilla">
+        <div class="card">
+          <img [src]="item.imagen" alt="Imagen del jugador">
+          <div class="card-body">
+            <h5 class="card-title">{{item.nombre}}</h5>
+            <p class="card-text">{{item.posicion}}</p>
           </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

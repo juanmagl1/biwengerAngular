@@ -13,7 +13,10 @@ import { User, UserResp } from '../interfaces/user.interface';
 })
 export class UpdateUserComponent implements OnInit {
   user!:UserResp;
+  file!:File;
+  bandera:boolean=true;
   usernameId:string|null=localStorage.getItem('username');
+  tiposImagen: string[] = ['image/jpeg', 'image/jpg', 'image/png'];
   us:any={
     telefono:'',
     pass:'',
@@ -28,7 +31,7 @@ export class UpdateUserComponent implements OnInit {
     private messageService:MessageService){}
   myForm:FormGroup=this.fb.group({
     username:['',Validators.required],
-    pass:['',[Validators.required,Validators.minLength(5)]],
+    pass:['',[Validators.minLength(5)]],
     nombre:['',[Validators.required]],
     email:['',[Validators.required,Validators.email]],
     role:['',[Validators.required]],
@@ -78,9 +81,8 @@ export class UpdateUserComponent implements OnInit {
       .subscribe({
         next:(resp)=>{
           this.messageService.add({
-            key:'update',
             severity:'success',
-            summary:'Usuario editado'
+            detail:'Usuario editado'
           })
           this.router.navigate(['/jugadores/mercado'])
         }, error:(err)=>{
@@ -92,24 +94,40 @@ export class UpdateUserComponent implements OnInit {
       .subscribe({
         next:(resp)=>{
           this.messageService.add({
-            key:'update',
             severity:'success',
-            summary:'Usuario editado con foto'
+            detail:'Usuario editado con foto'
           })
           this.router.navigate(['/jugadores/mercado'])
         }
       })
   }
 }
-
+comprobacionTipoArchivo(file:File){
+  if(!this.tiposImagen.includes(this.file.type)){
+    this.messageService.add({
+      severity:'error',
+      detail:'Ese formato no lo soporta'
+    })
+    this.bandera=false
+  }else if (this.file.size>1048576){
+     this.messageService.add({
+          severity:'error',
+          detail:'Ese formato no lo soporta'
+      })
+      this.bandera=false
+  }else{
+    this.bandera=true
+  } 
+}
 
   onFileSelected(event:any){
     if(event.target.files.length>0){
-      const file:File = event.target.files[0];
+      this.file = event.target.files[0];
+      this.comprobacionTipoArchivo(this.file)      
       this.myForm.patchValue({
-        fileSource: file
-    }
-    );
-  }
+        fileSource: this.file
+      })
+       
+}
 }
 }

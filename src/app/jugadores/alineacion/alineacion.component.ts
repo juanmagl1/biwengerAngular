@@ -20,7 +20,8 @@ export class AlineacionComponent implements OnInit{
       this.service.devolverAlineacion(this.username)
       .subscribe({
         next:(resp)=>{
-          this.plantilla=resp          
+          this.plantilla=resp 
+                   
         }
       })
   }

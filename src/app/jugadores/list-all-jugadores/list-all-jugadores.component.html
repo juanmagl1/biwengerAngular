@@ -4,8 +4,8 @@
   [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} resultados">
     <ng-template pTemplate="header" class="header">
       <tr class="enunciado">
-        <th pSortableColumn="nombre">Nombre</th>
-        <th pSortableColumn="posicion">Posicion</th>
+        <th pSortableColumn="nombre">Nombre<p-sortIcon field="nombre"></p-sortIcon></th>
+        <th pSortableColumn="posicion">Posicion<p-sortIcon field="posicion"></p-sortIcon></th>
         <th>Acciones</th>
       </tr>
     </ng-template>

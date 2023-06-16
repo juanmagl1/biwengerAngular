@@ -7,8 +7,8 @@
     [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} hasta {last} de {totalRecords} resultados">
       <ng-template pTemplate="header" class="header">
         <tr class="enunciado">
-          <th pSortableColumn="nombre">Nombre</th>
-          <th pSortableColumn="role">Role</th>
+          <th pSortableColumn="nombre">Nombre<p-sortIcon field="nombre"></p-sortIcon></th>
+          <th pSortableColumn="role">Role<p-sortIcon field="role"></p-sortIcon></th>
           <th>Acciones</th>
         </tr>
       </ng-template>
