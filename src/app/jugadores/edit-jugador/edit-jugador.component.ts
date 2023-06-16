@@ -23,11 +23,11 @@ export class EditJugadorComponent implements OnInit{
     myForm:FormGroup=this.fb.group({
       id:['',],
       nombre:[''],
-      precio:[''],
+      precio:['',Validators.min(0)],
       posicion:[''],
       pais:['',],
       puntos:[''],
-      idEquipo:[''],
+      idEquipo:['',Validators.min(0)],
       username:['']
     })
   ngOnInit(): void {
@@ -62,6 +62,10 @@ editar(){
       this.router.navigate(['jugadores/lista'])
     },
     error:(err)=>{
+      this.messageService.add({
+        severity:'error',
+        detail:`${err.error.message}`
+      })
       console.log(err);
       
     }
