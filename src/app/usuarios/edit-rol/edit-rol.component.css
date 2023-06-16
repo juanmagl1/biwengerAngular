@@ -1,0 +1,11 @@
+.clase {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .clase{
+    display:flex;
+    flex-direction: row;
+    margin-top: 4%;
+  }
