@@ -13,7 +13,7 @@ import { JugadoresService } from '../services/jugadores.service';
 export class AlineacionComponent implements OnInit{
   username:string|null=localStorage.getItem('username')
   usuario!:UserResp
-  plantilla!:Mercado[]
+  plantilla:Mercado[]=[]
   constructor(private service:JugadoresService){}
   ngOnInit(): void {
     if (this.username!=null)

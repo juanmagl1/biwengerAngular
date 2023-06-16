@@ -86,7 +86,10 @@ export class UpdateUserComponent implements OnInit {
           })
           this.router.navigate(['/jugadores/mercado'])
         }, error:(err)=>{
-          console.log(err);
+          this.messageService.add({
+            severity:'error',
+            detail:`${err.error.message}`
+          })
         }
       })
     }else{
@@ -98,6 +101,11 @@ export class UpdateUserComponent implements OnInit {
             detail:'Usuario editado con foto'
           })
           this.router.navigate(['/jugadores/mercado'])
+        },error:(err)=>{
+          this.messageService.add({
+            severity:'error',
+            detail:`${err.error.message}`
+          })
         }
       })
   }
