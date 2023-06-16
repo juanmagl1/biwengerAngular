@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:9094'
+    apiUrl: 'https://biwengerapi-production.up.railway.app'
   };
   
   /*
