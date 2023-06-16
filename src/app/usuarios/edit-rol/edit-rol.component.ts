@@ -6,7 +6,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-rol',
-  templateUrl: './edit-rol.component.html'
+  templateUrl: './edit-rol.component.html',
+  styles: [`
+  .clase {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+`]
 })
 export class EditRolComponent implements OnInit {
   username:string=this.route.snapshot.params['username'];

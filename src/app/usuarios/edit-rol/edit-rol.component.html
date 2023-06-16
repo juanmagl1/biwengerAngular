@@ -1,4 +1,6 @@
-<h1>Editar Rol</h1>
+<h1 style="text-align: center;">Editar Rol</h1>
+<div class="clase">
+    
 <form [formGroup]="myForm" (ngSubmit)="editarUsuarios()">
     <div class="row mb-3">
                 <div class="col-sm-9">
@@ -30,8 +32,12 @@
                     <button class="btn btn-primary" [disabled]="myForm.invalid">
                         Guardar
                     </button>
+                    <button class="btn btn-primary" [routerLink]="['/usuarios/accion']" >
+                        Volver a gestion de usuarios
+                    </button>
         </div>
     </div>
         </div>
     </div>
 </form>
+</div>
